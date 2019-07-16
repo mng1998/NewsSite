@@ -1,0 +1,73 @@
+﻿@model IEnumerable<News.Web.Models.Article>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_TableView.cshtml";
+}
+<h2>All Blogs</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table id="table" class="display">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Author
+            </th>
+            <th>
+                Picture
+            </th>
+            <th>
+                Created Date
+            </th>
+            <th>
+                Highlight
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+               <img src=" @Html.DisplayFor(modelItem => item.Picture)"  height="100" width="190"/>
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Highlight)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

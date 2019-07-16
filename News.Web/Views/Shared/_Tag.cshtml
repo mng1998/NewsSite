@@ -1,0 +1,26 @@
+<<<<<<< HEAD
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+=======
+﻿@{
+    ViewBag.Title = "Home Page";
+    var listTag = (List<News.Web.Models.Tag>)ViewBag.NewTag;
+}
+
+
+<div class="single-sidebar-widget tag_cloud_widget">
+    <h4 class="single-sidebar-widget__title">Popular Post</h4>
+    <ul class="list">
+        @foreach (var item in listTag)
+        {
+            <li>
+                <a href="#">@item.Name</a>
+            </li>
+        }
+
+
+    </ul>
+</div>
+>>>>>>> release v1.1
